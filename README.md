@@ -1,2 +1,2 @@
 # GameTemplate
-LWJGL Game template.
+`Developer - Dániel Molnár`

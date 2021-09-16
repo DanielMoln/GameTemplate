@@ -5,9 +5,9 @@ import org.lwjgl.util.vector.Vector3f;
 
 public class Settings
 {
-    private Camera camera = new Camera(new Vector3f(0,2f,0), 60, 0.3f, 100f);
+    private Camera camera = new Camera(new Vector3f(0,10,0), 70, 0.01f, 1000);
 
-    private Vector3f SkyColor = new Vector3f(0f, 0.255f, 0.255f);
+    private Vector3f SkyColor = new Vector3f(255f, 0.255f, 0.255f);
     private Vector3f lightColor = new Vector3f(1f, 1f, 1f);
     private Vector3f lightPosition = new Vector3f(0, 200, 50);
 

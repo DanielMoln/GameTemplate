@@ -86,4 +86,16 @@ public class Entity
     public void setScale(float scale) {
         this.scale = scale;
     }
+
+    @Override
+    public String toString() {
+        return "Entity{" +
+                "position=" + position +
+                ", texturedModel=" + texturedModel +
+                ", rotX=" + rotX +
+                ", rotY=" + rotY +
+                ", rotZ=" + rotZ +
+                ", scale=" + scale +
+                '}';
+    }
 }

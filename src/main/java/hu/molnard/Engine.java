@@ -23,6 +23,7 @@ public class Engine
             displayManager.updateDisplay();
         }
 
+        masterRenderer.cleanUp();
         displayManager.closeDisplay();
         System.out.println(PREFIX + "Game is down. Good bye!");
     }

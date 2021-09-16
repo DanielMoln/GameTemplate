@@ -24,7 +24,7 @@ public class EntityRenderer
         firstly, you add your entities to the `inGameEntities` and It going to separate to the memory
         and the program going to load objects to game from memory.
     */
-    private List<Entity> inGameEntities = new ArrayList<>();
+    private List<Entity> inGameEntities;
     private Map<TexturedModel, List<Entity>> memory = new HashMap<>();
 
     private Loader loader;
@@ -41,16 +41,21 @@ public class EntityRenderer
         this.loader = loader;
 
         entityEnviroment = new EntityEnviroment();
+        inGameEntities = entityEnviroment.fill(loader);
         entityShader = new EntityShader(settings, mathHelper);
-        loadEntities();
+
+        mathHelper.createProjectionMatrix();
+        entityShader.start();
+            entityShader.loadProjectionMatrix(mathHelper.getProjectionMatrix());
+        entityShader.stop();
     }
 
-    public void loadEntities()
+    public void render()
     {
         /* separate incoming entity */
-        inGameEntities = entityEnviroment.fill(loader);
-        inGameEntities.forEach(e -> separateEntity(e));
+        inGameEntities.forEach(e ->  { separateEntity(e); e.increaseRotation(1.1f, 1f, 0.1f); });
 
+        /* start shader */
         entityShader.start();
 
         entityShader.loadViewMatrix();
@@ -70,9 +75,9 @@ public class EntityRenderer
             unbindAttribs();
         });
 
+        /* stop shadering */
         entityShader.stop();
 
-        /* clear memory */
         memory.clear();
     }
 

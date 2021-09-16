@@ -17,7 +17,6 @@ public class MathHelper
     public MathHelper(Settings settings)
     {
         this.camera = settings.getCamera();
-        insertProjectionMatrix();
     }
 
     /*** This method calculate the height of the terrain where the player stand on. **/
@@ -65,7 +64,7 @@ public class MathHelper
         return viewMatrix;
     }
 
-    private void insertProjectionMatrix()
+    public void createProjectionMatrix()
     {
         float aspectRatio = (float) Display.getWidth() / (float) Display.getHeight();
         float y_scale = (float) ((1f / Math.tan(Math.toRadians(camera.getFOV() / 2f))) * aspectRatio);
@@ -79,5 +78,9 @@ public class MathHelper
         projectionMatrix.m23 = -1;
         projectionMatrix.m32 = -((2 * camera.getNEAR_PLANE() * camera.getFAR_PLANE()) / frustum_length);
         projectionMatrix.m33 = 0;
+    }
+
+    public Matrix4f getProjectionMatrix() {
+        return projectionMatrix;
     }
 }

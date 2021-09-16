@@ -32,14 +32,12 @@ public class Loader
                 1: texture coords
                 2: normal vectors
         */
-        int dimension = 2;
-
-        insertDataToAttribute(0, dimension, positions);
-        insertDataToAttribute(1, dimension, textCoords);
-        insertDataToAttribute(2, dimension, normals);
+        insertDataToAttribute(0, 3, positions);
+        insertDataToAttribute(1, 2, textCoords);
+        insertDataToAttribute(2, 3, normals);
 
         GL30.glBindVertexArray(0); /* unbind the current vao */
-        return new RawModel(id, positions.length / 2);
+        return new RawModel(id, indices.length);
     }
 
     /* load and save texture */

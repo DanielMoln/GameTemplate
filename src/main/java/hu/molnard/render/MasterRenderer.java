@@ -1,17 +1,15 @@
 package hu.molnard.render;
 
-import hu.molnard.entity.Camera;
 import hu.molnard.help.MathHelper;
 import hu.molnard.util.Settings;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.vector.Vector3f;
 
 public class MasterRenderer
 {
-    private EntityRenderer entityRenderer;
     private Settings settings = new Settings();
     private MathHelper mathHelper = new MathHelper(settings);
     private Loader loader = new Loader();
+    private EntityRenderer entityRenderer = new EntityRenderer(settings, mathHelper, loader);
 
     public MasterRenderer()
     {
@@ -22,7 +20,7 @@ public class MasterRenderer
     public void render()
     {
         prepare();
-        entityRenderer = new EntityRenderer(settings, mathHelper, loader);
+        entityRenderer.render();
     }
 
     public void cleanUp()

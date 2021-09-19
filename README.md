@@ -1,7 +1,5 @@
 # GameTemplate
-LWJGL Game template.
-
-## There are 2 version
+`LWJGL Game template.`
 
  **Version 1:**
      ```Features: 

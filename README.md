@@ -1,2 +1,2 @@
 # GameTemplate
-`Developer - Dániel Molnár`
+Version1

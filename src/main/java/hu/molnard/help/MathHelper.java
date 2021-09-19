@@ -83,4 +83,14 @@ public class MathHelper
     public Matrix4f getProjectionMatrix() {
         return projectionMatrix;
     }
+
+    public double distanceFromTwo2dPoint(Vector2f T, Vector2f P)
+    {
+        /* d(T;P) = square((x2-x1)^2 + (y2-y1)^2) */
+        // P = x2y2
+        // T = x1y1
+        return (Math.sqrt(
+           Math.pow((P.x-T.x), 2) + Math.pow((P.y - T.y), 2)
+        ));
+    }
 }

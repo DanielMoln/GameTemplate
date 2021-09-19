@@ -19,6 +19,7 @@ public class EntityShader extends AShader
     private int location_viewMatrix;
     private int location_lightPosition;
     private int location_lightColour;
+    private int location_useFakeLight;
 
     public EntityShader(Settings settings, MathHelper mathHelper)
     {
@@ -34,6 +35,7 @@ public class EntityShader extends AShader
         location_viewMatrix = super.getUniformLocation("viewMatrix");
         location_lightColour = super.getUniformLocation("lightColour");
         location_lightPosition = super.getUniformLocation("lightPosition");
+        location_useFakeLight = super.getUniformLocation("useFakeLighting");
     }
 
     @Override
@@ -58,6 +60,11 @@ public class EntityShader extends AShader
         Matrix4f matrix = mathHelper.createViewMatrix(settings.getCamera());
         super.loadMatrix(location_viewMatrix, matrix);
 
+    }
+
+    public void loadFakeLighting(boolean useFakeLighting)
+    {
+        super.loadBoolean(location_useFakeLight, useFakeLighting);
     }
 
     public void loadLightValues()

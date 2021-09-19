@@ -12,6 +12,7 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 import org.lwjgl.util.vector.Matrix4f;
+import org.lwjgl.util.vector.Vector2f;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -105,11 +106,11 @@ public class EntityRenderer
         GL20.glEnableVertexAttribArray(1);
         GL20.glEnableVertexAttribArray(2);
 
-        /*if ( model.getModelTexture().isHasTransparency() )
+        if ( tm.getModelTexture().isHasTransparency() )
         {
-            MasterRenderer.disableCulling();
-            entitiyShader.loadFakeLightBooleanValue(true);
-        }*/
+            disableCulling();
+            entityShader.loadFakeLighting(true);
+        }
 
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, tm.getModelTexture().getId());

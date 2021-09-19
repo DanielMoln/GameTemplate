@@ -13,7 +13,7 @@ out vec4 out_Color;
 
 void main(void)
 {
-    // set up diffuse lighting
+    /* set up diffuse lighting */
     vec3 unitNormal = normalize(surfaceNormal);
     vec3 unitLightVector = normalize(toLightVector);
 
@@ -23,7 +23,7 @@ void main(void)
 
     vec4 texuredColour = texture(textureSampler, pass_vertexTexture);
 
-    // transparency
+    /* transparency */
     if ( texuredColour.a < 0.5f )
     {
         discard;
